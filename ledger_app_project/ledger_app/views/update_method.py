@@ -14,8 +14,8 @@ def edit_instance(request, model, form_class, id):
             return json.dumps({"edit_result": False})
     return json.dumps({"edit_result": True})
 
-def edit_user(request, user_id):
+def update_user(request, user_id):
     return edit_instance(request, UserModel, UserCreateForm, user_id)
 
-def edit_item(request, item_id):
+def update_item(request, item_id):
     return edit_instance(request, ItemModel, ItemCreateForm, item_id)

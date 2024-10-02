@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ledger_app.apps.LedgerAppConfig',
+    'api.apps.ApiConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

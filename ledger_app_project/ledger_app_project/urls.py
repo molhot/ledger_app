@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+import ledger_app
 from api import views as api_views
+import ledger_app.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(api_views.router.urls)),
+    path('my_ledger/', include(ledger_app.urls))
 ]

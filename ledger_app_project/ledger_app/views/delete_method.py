@@ -9,8 +9,8 @@ def delete_instance(request, model, post_id):
     post.delete()
     return json.dumps({"delete_result": True})
 
-def edit_user(request, user_id):
+def delete_user(request, user_id):
     return delete_instance(request, UserModel, user_id)
 
-def edit_item(request, item_id):
+def delete_item(request, item_id):
     return delete_instance(request, ItemModel, item_id)
