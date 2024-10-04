@@ -5,6 +5,7 @@
 // import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hello from './js/main.jsx'
+import Ranking from './js/ranking.js'
 
 export const Router = () => {
     return (
@@ -13,7 +14,9 @@ export const Router = () => {
                 <Route path="/" Component={Hello} />
                     main_hello_page
                 <Route />
-                {/* <Route path="/ranking" element={< Ranking/>} />             */}
+                <Route path = "/ranking" Component={Ranking}>
+                    ranking page
+                </Route>
                 {/* <Route path="/login" element={<Login />} /> */}
             </Routes>
         </BrowserRouter>
