@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Header from "../../component/js/header.js"
 // import ReactDOM from 'react-dom';
 
 class Hello extends Component {
   render() {
     return (
-      <p>hello world!</p>
+      <main>
+        <Header />
+        <p>hello world!</p>
+      </main>
     )
   }
 }

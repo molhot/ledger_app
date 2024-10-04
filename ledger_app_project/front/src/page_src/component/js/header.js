@@ -4,13 +4,13 @@ function Header() {
     return (
       <div className="App">
         <header>
-          <div className="header_style.header_main_tag">
+          <div className="header_main_tag">
             Main
           </div>
-          <div className="header_style.header_image_tag">
+          <div className="header_image_tag">
             Graph
           </div>
-          <div className="header_style.header_ranking_tag">
+          <div className="header_ranking_tag">
             Ranking
           </div>
         </header>
