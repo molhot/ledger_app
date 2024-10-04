@@ -33,7 +33,10 @@ class ItemModel(models.Model):
 
     item_price = models.IntegerField(
         blank = False,
-        max_length = 255,
+    )
+
+    item_regist_day = models.DateField(
+        blank = False,
     )
 
     def __str__(self):

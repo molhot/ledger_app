@@ -22,7 +22,7 @@ from api import views as api_views
 import ledger_app.urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('api/', include(api_views.router.urls)),
     path('my_ledger/', include(ledger_app.urls))
 ]
