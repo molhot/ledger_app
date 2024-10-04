@@ -1,0 +1,5 @@
+[
+    {"id":1,"item_name":"apple","item_user_id":1,"item_price":100},
+    {"id":2,"item_name":"grape","item_user_id":1,"item_price":150},
+    {"id":3,"item_name":"note","item_user_id":1,"item_price":1000}
+]
