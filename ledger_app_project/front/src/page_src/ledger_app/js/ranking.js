@@ -1,7 +1,7 @@
 import datas from '../test/test1.json';
 import DropDown from "../../component/js/selectmonth.jsx"
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -43,25 +43,34 @@ const data = {
     labels, // x軸のラベルの配列
     datasets: [
         {
-        label: "Dataset 1", // 凡例
-        data: data1,        // データの配列(labelsと要素数同じ)
-        backgroundColor: "rgba(255, 99, 132, 0.5)" // グラフの棒の色
+            label: "Dataset 1", // 凡例
+            data: data1,        // データの配列(labelsと要素数同じ)
+            backgroundColor: "rgba(255, 99, 132, 0.5)" // グラフの棒の色
         },
         {
-        label: "Dataset 2",
-        data: data2,
-        backgroundColor: "rgba(53, 162, 235, 0.5)"
+            label: "Dataset 2",
+            data: data2,
+            backgroundColor: "rgba(53, 162, 235, 0.5)"
         }
     ]
-    };
+};
 
     function Ranking(){
-    return (
-        <div>
-            <DropDown />
-            <Bar options={options} data={data} />
-        </div>
-    );
+        const [selectedmonth, setselectedmonth] = useState(null);
+
+        const handleMonthChange = (month) => {
+            setselectedmonth(month);
+        }
+
+        return (
+            <div>
+                <DropDown onMonthChange={handleMonthChange}/>
+                <Bar options={options} data={data} />
+                <div>
+                    {labels[selectedmonth]}
+                </div>
+            </div>
+        );
 };
 
 // function Ranking() {
