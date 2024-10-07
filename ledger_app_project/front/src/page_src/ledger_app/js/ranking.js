@@ -1,5 +1,5 @@
-import datas from '../test/test1.json';
 import DropDown from "../../component/js/selectmonth.jsx"
+import ReadyRankingGraph from './readyrankingdata.jsx';
 
 import React, { useState } from "react";
 import {
@@ -66,6 +66,7 @@ const data = {
             <div>
                 <DropDown onMonthChange={handleMonthChange}/>
                 <Bar options={options} data={data} />
+                <ReadyRankingGraph />
                 <div>
                     {labels[selectedmonth]}
                 </div>
