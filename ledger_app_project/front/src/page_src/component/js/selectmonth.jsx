@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 
 function DropDown ({onMonthChange}) {
-    const [selectedmonth, setSelectedmonth] = useState(1);
+    const [selectedmonth, setSelectedmonth] = useState(null);
     useEffect(() => {
         setSelectedmonth(1);
       }, []);
     const month_options = [
+        {value:null, label:"All Month"},
         {value:1, label:"January"},
         {value:2, label:"February"},
         {value:3, label:"March"},
@@ -29,9 +30,6 @@ function DropDown ({onMonthChange}) {
         <div>
             <Select
                 options={month_options}
-                // // defaultValue = {1}
-                // value={month_options.find(option => option.value === selectedmonth)}
-                // // onChange = {SelectedMonthEvent}
                 onChange = {handleMonthChange}
             />
         </div>

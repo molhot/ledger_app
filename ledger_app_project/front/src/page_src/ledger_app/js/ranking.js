@@ -35,9 +35,8 @@ const options = {
     }
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novenber", "Discenber"];
 const data1 = [12, 11, 14, 52, 14, 32, 36];
-const data2 = [22, 31, 17, 32, 24, 62, 66];
 
 const data = {
     labels, // x軸のラベルの配列
@@ -46,47 +45,36 @@ const data = {
             label: "Dataset 1", // 凡例
             data: data1,        // データの配列(labelsと要素数同じ)
             backgroundColor: "rgba(255, 99, 132, 0.5)" // グラフの棒の色
-        },
-        {
-            label: "Dataset 2",
-            data: data2,
-            backgroundColor: "rgba(53, 162, 235, 0.5)"
         }
     ]
 };
 
-    function Ranking(){
-        const [selectedmonth, setselectedmonth] = useState(null);
-
-        const handleMonthChange = (month) => {
-            setselectedmonth(month);
-        }
-
+function switch_graphing(selected_month){
+    if (selected_month["selectedmonth"] in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]){
+        return <ReadyRankingGraph />
+    } else {
         return (
             <div>
-                <DropDown onMonthChange={handleMonthChange}/>
+                <h1>全体図</h1>
                 <Bar options={options} data={data} />
-                <ReadyRankingGraph />
-                <div>
-                    {labels[selectedmonth]}
-                </div>
             </div>
-        );
-};
+        )
+    } 
+}
 
-// function Ranking() {
-//     return (
-//         <div>
-//             <h1>User List</h1>
-//             <ul>
-//                 {datas.map((data) => (
-//                 <li key={data.id}>
-//                     {data.item_name}: {data.item_price}yen
-//                 </li>
-//                 ))}
-//             </ul>
-//         </div>
-//     )
-// }
+function Ranking(){
+    const [selectedmonth, setselectedmonth] = useState(null);
+
+    const handleMonthChange = (month) => {
+        setselectedmonth(month);
+    }
+
+    return (
+        <div>
+            <DropDown onMonthChange={handleMonthChange}/>
+            {switch_graphing({selectedmonth})}
+        </div>
+    );
+};
   
 export default Ranking;
