@@ -3,7 +3,7 @@
 
 import React from 'react';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
-import ReadyApiData from "./readyapidata.jsx"
+import {ReadyApiData, Content} from "./readyapidata.jsx"
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -35,7 +35,12 @@ export function ReadyRankingGraph(){
             {label: "Dataset 1", data: DateMonthList, backgroundColor: "rgba(255, 99, 132, 0.5)"}
         ]
     };
-    return <Bar options={options} data={data} />;
+    return (
+        <div>
+            <Bar options={options} data={data} />
+            <Content></Content>
+        </div>
+    );
 };
 
 export function ReadyMonthRankingGraph(month){
@@ -48,8 +53,7 @@ export function ReadyMonthRankingGraph(month){
     let ApiData = ReadyApiData()
     if (month - 1 === 2){
         initialArray = Array(28).fill(0);
-    }
-    else if (month - 1 in [2, 4, 6, 9, 11]){
+    } else if (month - 1 in [2, 4, 6, 9, 11]){
         initialArray = Array(30).fill(0);
     } else {
         initialArray = Array(31).fill(0);
@@ -71,5 +75,10 @@ export function ReadyMonthRankingGraph(month){
             {label: "Dataset 1", data: initialArray, backgroundColor: "rgba(255, 99, 132, 0.5)"}
         ]
     };
-    return <Bar options={options} data={data} />;
+    return (
+        <div>
+            <Bar options={options} data={data} />
+            <Content></Content>
+        </div>
+    );
 };  

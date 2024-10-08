@@ -40,4 +40,4 @@ class ItemModel(models.Model):
     )
 
     def __str__(self):
-        return f'{self.item_name} is {self.item_price}'
+        return f'{self.item_name} is {self.item_price} | {self.item_regist_day}'

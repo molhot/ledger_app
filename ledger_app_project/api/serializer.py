@@ -10,5 +10,5 @@ class UserSerializer(serializers.ModelSerializer):
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemModel
-        fields = ('id', 'item_name', 'item_user_id', 'item_price')
+        fields = ('id', 'item_name', 'item_user_id', 'item_price', 'item_regist_day')
 

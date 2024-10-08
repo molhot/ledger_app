@@ -1,4 +1,6 @@
 import items from '../test/test1.json';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 function ArrangeDataFormat(date){
     date = new Date(date);
@@ -12,7 +14,7 @@ function ArrangeDataFormat(date){
     return date;
 }
 
-function ReadyApiData() {
+export function ReadyApiData() {
     let data_dict = []
     items.forEach((item) => {
         let item_name = item.item_name;
@@ -29,4 +31,26 @@ function ReadyApiData() {
     return  data_dict
 };
 
-export default ReadyApiData;
+export const Content = () => {
+    const [userInfo, setUserInfo] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/item/`)
+            .then(res => {
+                console.log(res.data);
+                setUserInfo(res.data);
+            });
+    }, []);
+
+    return (
+        <div>
+            <div>
+                {userInfo.map(user => (
+                    <div key={user.user_id}>
+                        {user.user_id}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
